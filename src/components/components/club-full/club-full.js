@@ -12,14 +12,13 @@ import { ApolloConsumer, withApollo } from 'react-apollo';
 import TextInput from '../../forms/text-input/text-input';
 import { returnKeyCheck } from '../../../utils/accessibility';
 import { mapUserToProps } from '../../../utils/redux-utils';
-import clubCover from '../../../images/ClubCover.png';
-import groupSmallImage from '../../../images/group-small.jpg';
 import Layout2ColsUnequal from '../../layouts/layout-2col-unequal/layout-2col-unequal';
 import LayoutContained from '../../layouts/layout-contained/layout-contained';
 import ClubInfo from '../club-info/club-info';
 import MemberList from '../member-list/member-list';
 import Shape from '../shape/shape';
 import { LoginLink } from '../../layouts/auth-wrapper/auth-wrapper';
+import ClubFullHeader from './components/club-full-header';
 import {
   getClubQuery,
   editClubMutation,
@@ -580,32 +579,12 @@ class Club extends React.PureComponent {
           </title>
         </Helmet>
 
-        <div className="club-full__header">
-          <div className="club-full__cover-wrapper">
-            <img
-              src={snapshot.bannerImageUrl || clubCover}
-              className="club-full__cover-image"
-              alt=""
-            />
-          </div>
-
-          <div className="club-full__header-bottom">
-            <div className="club-full__profile-picture-section">
-              <div className="club-full__profile-picture-wrapper">
-                <img
-                  src={snapshot.imageUrl || groupSmallImage}
-                  alt="Club profile"
-                  className="club-full__profile-picture"
-                />
-              </div>
-            </div>
-
-            <div className="club-full__title-wrapper">
-              {title}
-              {subtitle}
-            </div>
-          </div>
-        </div>
+        <ClubFullHeader
+          bannerImageUrl={snapshot.bannerImageUrl}
+          imageUrl={snapshot.imageUrl}
+          subtitle={subtitle}
+          title={title}
+        />
 
         <Layout2ColsUnequal
           inverse
