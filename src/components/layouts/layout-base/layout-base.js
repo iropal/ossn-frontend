@@ -21,7 +21,7 @@ import store from "./../../../store";
 import Footer from "./../../components/footer/footer";
 import Header from "./../../components/header/header";
 import SkipLink from "./../../components/skip-link/skip-link";
-import AuthWrapper from "./..//auth-wrapper/auth-wrapper";
+import AuthWrapper from "./../auth-wrapper/auth-wrapper";
 
 // import LayoutContained from "./../layout-contained/layout-contained";
 const authLink = setContext((_, req) => {
@@ -57,7 +57,7 @@ const errorHandling = onError(({ networkError, operation, forward }) => {
     // Delete previous auth header
     delete headers[AUTH_HEADER];
 
-    // Set headers to the new opertion
+    // Set headers to the new operation
     operation.setContext({ headers });
 
     // retry the request, returning the new observable

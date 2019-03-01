@@ -1,28 +1,23 @@
 /*
 The container for the organizations page.
 */
+import "../components/pages-styles/organizations.scss";
 
-// external modules
-import React, { memo } from 'react';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-
-// Local modules.
-import BasicLayout from '../components/layouts/layout-base/layout-base';
-import LayoutContained from './../components/layouts/layout-contained/layout-contained';
-import Organization from './../components/components/organization/organization';
-import Layout3Col from './../components/layouts/layout-3col/layout-3col';
-import Layout2Col from './../components/layouts/layout-2col/layout-2col';
-import Layout2ColsUnequal from './../components/layouts/layout-2col-unequal/layout-2col-unequal';
-import MediaQuery from 'react-responsive';
-import Shape from './../components/components/shape/shape';
-import Banner from './../components/components/banner/banner';
-
-import '../components/pages-styles/organizations.scss';
-
+import React, { memo } from "react";
+import { Helmet } from "react-helmet";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import BasicLayout from "../components/layouts/layout-base/layout-base";
+import LayoutContained from "./../components/layouts/layout-contained/layout-contained";
+import Organization from "./../components/components/organization/organization";
+import Layout3Col from "./../components/layouts/layout-3col/layout-3col";
+import Layout2Col from "./../components/layouts/layout-2col/layout-2col";
+import Layout2ColsUnequal from "./../components/layouts/layout-2col-unequal/layout-2col-unequal";
+import MediaQuery from "react-responsive";
+import Shape from "./../components/components/shape/shape";
+import Banner from "./../components/components/banner/banner";
 // Import page title from gatsby config.
-import GatsbyConfig from './../../gatsby-config';
+import GatsbyConfig from "./../../gatsby-config";
 
 const Organizations = props => {
   const content = props.data.allOrganizationsJson.edges.map((node, i) => {
@@ -33,7 +28,7 @@ const Organizations = props => {
     <BasicLayout>
       <Helmet>
         <title>
-          {['Organization', '|', GatsbyConfig.siteMetadata.title].join(' ')}
+          {["Organization", "|", GatsbyConfig.siteMetadata.title].join(" ")}
         </title>
       </Helmet>
       <LayoutContained className="organizations">
@@ -46,7 +41,7 @@ const Organizations = props => {
             props.data.organizationsBannerImageDesktop.childImageSharp.fluid
           }
           text=""
-          title={['in unity,', 'there is', 'strength']}
+          title={["in unity,", "there is", "strength"]}
           forPage="organizations"
         />
 
